@@ -1,4 +1,6 @@
-"using strint";
+"use strict";
+
+const title = document.querySelector(".title");
 
 const display = document.querySelector(".display-screen");
 
