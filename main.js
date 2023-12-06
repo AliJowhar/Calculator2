@@ -1,11 +1,14 @@
 "use strict";
-
 const title = document.querySelector(".title");
 
 const display = document.querySelector(".display-screen");
 
 const numBtn = document.querySelectorAll(".btn-num");
 const clearBtn = document.querySelector(".clear");
+
+let firstNumber;
+let operator;
+let secondNumber;
 
 // Mathmatical operations
 const add = function (a, b) {
@@ -20,6 +23,10 @@ const multiply = function (a, b) {
 };
 const divide = function (a, b) {
   return a / b;
+};
+
+const operation = function (a, b, operation) {
+  return operation(a, b);
 };
 
 // Show what value the buttons have to the display
@@ -40,3 +47,9 @@ const populateDisplay = function () {
 };
 
 populateDisplay();
+
+//TODO
+// 1) functionality for operator buttons
+// 2) Reset button functionality
+// 3) Equals button equals button functionality
+// 4) Operator button fuctionality
