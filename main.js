@@ -57,20 +57,12 @@ const populateDisplay = function () {
 
 populateDisplay();
 
-//TODO
-// 1) functionality for operator buttons
-// 2) Reset button functionality
-// 3) Equals button equals button functionality
-
 addBtn.addEventListener("click", () => {
   if (firstNumber !== null) {
     secondNumber = display.textContent;
-    operator = add;
     result = operation(firstNumber, secondNumber, operator);
+    operator = add;
     firstNumber = result;
-    console.log(`this is firstnum ${firstNumber}`);
-    console.log(` second num ${secondNumber}`);
-    console.log(`result ${result}`);
     display.textContent = firstNumber;
     secondNumber = null;
   }
@@ -78,31 +70,28 @@ addBtn.addEventListener("click", () => {
   operator = add;
   display.textContent = "";
 });
+
 minusBtn.addEventListener("click", () => {
   if (firstNumber !== null) {
     secondNumber = display.textContent;
-    operator = minus;
     result = operation(firstNumber, secondNumber, operator);
+    operator = minus;
     firstNumber = result;
-    console.log(`this is firstnum ${firstNumber}`);
-    console.log(` second num ${secondNumber}`);
-    console.log(`result ${result}`);
     display.textContent = firstNumber;
     secondNumber = null;
+    operator = null;
   }
   firstNumber = display.textContent;
   operator = minus;
   display.textContent = "";
 });
+
 multiplyBtn.addEventListener("click", () => {
   if (firstNumber !== null) {
     secondNumber = display.textContent;
-    operator = multiply;
     result = operation(firstNumber, secondNumber, operator);
+    operator = multiply;
     firstNumber = result;
-    console.log(`this is firstnum ${firstNumber}`);
-    console.log(` second num ${secondNumber}`);
-    console.log(`result ${result}`);
     display.textContent = firstNumber;
     secondNumber = null;
   }
@@ -110,15 +99,13 @@ multiplyBtn.addEventListener("click", () => {
   operator = multiply;
   display.textContent = "";
 });
+
 divideBtn.addEventListener("click", () => {
   if (firstNumber !== null) {
     secondNumber = display.textContent;
-    operator = divide;
     result = operation(firstNumber, secondNumber, operator);
+    operator = divide;
     firstNumber = result;
-    console.log(`this is firstnum ${firstNumber}`);
-    console.log(` second num ${secondNumber}`);
-    console.log(`result ${result}`);
     display.textContent = firstNumber;
     secondNumber = null;
   }
@@ -128,14 +115,22 @@ divideBtn.addEventListener("click", () => {
 });
 
 equalsBtn.addEventListener("click", () => {
-  if (firstNumber !== null) {
+  if (firstNumber !== null && operator !== null) {
     secondNumber = display.textContent;
     result = operation(firstNumber, secondNumber, operator);
     display.textContent = "";
     display.textContent = result;
     firstNumber = result;
-
     firstNumber = null;
     secondNumber = null;
+  } else {
+    result = operation(firstNumber, secondNumber, operator);
   }
+});
+
+clearBtn.addEventListener("click", () => {
+  display.textContent = "";
+  firstNumber = null;
+  operator = null;
+  secondNumber = null;
 });
